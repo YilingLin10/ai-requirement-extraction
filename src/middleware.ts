@@ -1,8 +1,8 @@
 import { privateRoutes } from "./routes"
 import authConfig from "./auth.config"
 import NextAuth from "next-auth"
+import { env } from "process"
 
-const baseUrl = "http://localhost:3000"
 const { auth } = NextAuth(authConfig)
 export default auth(async (req) => {
     const isLoggedIn = !!req.auth;
@@ -15,11 +15,11 @@ export default auth(async (req) => {
     }
     
     if (isLoggedIn && isAuthRoute) {
-        return Response.redirect(`${baseUrl}/get-started`);
+        return Response.redirect(`${env.BASE_URL}/get-started`);
     }
 
     if (isPrivateRoute && !isLoggedIn) {
-        return Response.redirect(`${baseUrl}/sign-in`);
+        return Response.redirect(`${env.BASE_URL}/sign-in`);
     }
 })
 
