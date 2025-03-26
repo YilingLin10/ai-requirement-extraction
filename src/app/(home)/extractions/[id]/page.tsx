@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-export default async function ExtractionPage({ params }: { params: { id: string } }) {
+export default async function ExtractionPage({ params }: {params: Promise<{ id: string }>}) {
     const { id } = await params
     const extraction = await prisma.extraction.findUnique({
         where: { id: id },
