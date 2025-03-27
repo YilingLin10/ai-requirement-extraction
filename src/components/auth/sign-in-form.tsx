@@ -42,9 +42,7 @@ const SignInForm = () => {
             } 
             if (res.success) {
                 router.push('/get-started');
-                setLoading(false)
             }
-            setLoading(false)
         })
     }
 
