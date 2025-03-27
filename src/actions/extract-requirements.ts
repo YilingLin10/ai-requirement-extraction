@@ -2,7 +2,7 @@
 import { z } from 'zod';
 import { textFormSchema } from '@/lib/zod';
 //import { textGeneration } from "@/lib/huggingface"
-import { textGeneration } from "@/lib/test-ai"
+import { textGeneration } from "@/lib/test-ai"  // for testing
 import { prisma } from "@/lib/prisma"
 import { getCurrentUser } from '@/lib/getCurrentUser';
 
